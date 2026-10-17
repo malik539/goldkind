@@ -21,8 +21,8 @@
     // the direct video file URL (.mp4 / .webm) from the GHL media library; `poster` is the
     // thumbnail image. The section renders only when every entry has a src.
     TESTIMONIAL_VIDEOS: [
-      { name: 'Tommy', treatment: 'Braces Treatment', src: '', poster: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/69e73a4d2c135a8c83d77370.png' },
-      { name: 'Aiden', treatment: 'Braces Treatment', src: '', poster: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/69e73987c56ad2790865f546.png' }
+      { name: 'Tommy', treatment: 'Braces Treatment', src: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/6917dc485d55fc13ea3f3820.mp4', poster: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/69e73a4d2c135a8c83d77370.png' },
+      { name: 'Aiden', treatment: 'Braces Treatment', src: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/6917db3df117fc71bd20dcd6.mp4', poster: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/69e73987c56ad2790865f546.png' }
     ],
     MIN_SECONDS_BEFORE_SUBMIT: 3
   };
