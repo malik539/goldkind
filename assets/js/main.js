@@ -336,12 +336,59 @@
     wrap.hidden = false;
   }
 
+  /* ---------- Scroll reveal ---------- */
+  function initReveal() {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items = $$('[data-reveal]');
+    if (!items.length) { return; }
+    document.documentElement.classList.add('js-reveal');
+
+    // Lazy images fade in once decoded (dimensions are set in HTML, so no layout shift).
+    $$('img[loading="lazy"]').forEach(function (img) {
+      if (img.complete && img.naturalWidth) { img.classList.add('is-loaded'); return; }
+      img.addEventListener('load', function () { img.classList.add('is-loaded'); }, { once: true });
+      img.addEventListener('error', function () { img.classList.add('is-loaded'); }, { once: true });
+    });
+
+    if (reduce || !('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('is-visible', 'no-anim'); });
+      return;
+    }
+
+    // Stagger siblings that reveal together (cards, FAQ rows): 80ms steps, capped.
+    var groups = {};
+    items.forEach(function (el) {
+      var key = el.parentElement;
+      if (!key.__revealIdx) { key.__revealIdx = 0; }
+      var idx = key.__revealIdx++;
+      if (idx) { el.style.setProperty('--reveal-delay', Math.min(idx, 4) * 0.08 + 's'); }
+    });
+
+    var vh = window.innerHeight;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) { return; }
+        var el = entry.target;
+        el.classList.add('is-visible');
+        el.addEventListener('transitionend', function () { el.classList.add('reveal-done'); }, { once: true });
+        io.unobserve(el);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+    items.forEach(function (el) {
+      // Anything already on screen at load shows immediately (no fade-in flash on tall viewports).
+      if (el.getBoundingClientRect().top < vh * 0.9) { el.classList.add('is-visible', 'no-anim'); return; }
+      io.observe(el);
+    });
+  }
+
   function init() {
     initCountdown();
     initScrollLinks();
     initTracking();
     initTicker();
     initTestimonials();
+    initReveal();
     initStickyCta();
     initForm();
     var y = $('#year'); if (y) { y.textContent = String(new Date().getFullYear()); }
