@@ -21,8 +21,8 @@
     // the direct video file URL (.mp4 / .webm) from the GHL media library; `poster` is the
     // thumbnail image. The section renders only when every entry has a src.
     TESTIMONIAL_VIDEOS: [
-      { name: 'Tommy', treatment: 'Braces Treatment', src: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/6917dab25d55fc3d073f0dac.mp4', poster: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/69e73a4d2c135a8c83d77370.png' },
-      { name: 'Aiden', treatment: 'Braces Treatment', src: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/6917db3df117fc71bd20dcd6.mp4', poster: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/69e73987c56ad2790865f546.png' }
+      { name: 'Tommy', treatment: 'Braces Treatment', src: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/6917dab25d55fc3d073f0dac.mp4', poster: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/69e73987c56ad2790865f546.png' },
+      { name: 'Aiden', treatment: 'Braces Treatment', src: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/6917db3df117fc71bd20dcd6.mp4', poster: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/69e73a4d2c135a8c83d77370.png' }
     ],
     MIN_SECONDS_BEFORE_SUBMIT: 3
   };
@@ -316,22 +316,46 @@
     items.forEach(function (v) {
       var card = document.createElement('figure');
       card.className = 'testi-card';
+      var media = document.createElement('div');
+      media.className = 'testi-media';
+
       var video = document.createElement('video');
       video.controls = true; video.preload = 'none'; video.playsInline = true;
-      if (v.poster) { video.poster = v.poster; }
       video.setAttribute('aria-label', v.name + ' — ' + v.treatment + ' patient testimonial');
       var source = document.createElement('source');
-      source.src = v.src;
+      source.src = v.src; source.type = 'video/mp4';
       video.appendChild(source);
       video.addEventListener('play', function () {
         $$('video', grid).forEach(function (other) { if (other !== video) { other.pause(); } });
         track('video_play', { video_name: v.name });
       });
+      media.appendChild(video);
+
+      // Click-to-play facade: thumbnail shown whole (contained) over a blurred fill, so a
+      // landscape thumbnail is not cropped inside the portrait frame.
+      if (v.poster) {
+        var btn = document.createElement('button');
+        btn.type = 'button'; btn.className = 'testi-play';
+        btn.setAttribute('aria-label', 'Play ' + v.name + '\u2019s testimonial');
+        var bg = document.createElement('span'); bg.className = 'testi-bg';
+        bg.style.backgroundImage = 'url("' + v.poster + '")';
+        var img = document.createElement('img'); img.className = 'testi-thumb';
+        img.src = v.poster; img.alt = ''; img.loading = 'lazy'; img.decoding = 'async';
+        var icon = document.createElement('span'); icon.className = 'testi-play-icon'; icon.setAttribute('aria-hidden', 'true');
+        btn.appendChild(bg); btn.appendChild(img); btn.appendChild(icon);
+        btn.addEventListener('click', function () {
+          btn.hidden = true;
+          var p = video.play();
+          if (p && p.catch) { p.catch(function () { /* controls remain available */ }); }
+        });
+        media.appendChild(btn);
+      }
+
       var cap = document.createElement('figcaption');
       cap.innerHTML = '<strong></strong><span></span>';
       cap.firstChild.textContent = v.name;
       cap.lastChild.textContent = v.treatment;
-      card.appendChild(video); card.appendChild(cap); grid.appendChild(card);
+      card.appendChild(media); card.appendChild(cap); grid.appendChild(card);
     });
     wrap.hidden = false;
   }
