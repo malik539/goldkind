@@ -174,57 +174,166 @@
       </div>
     </section>
 
-    <!-- ============ 3. TRUST / SOCIAL PROOF ============ -->
+    <!-- ============ 3. TRUST / SOCIAL PROOF (running ticker) ============ -->
     <section class="section reviews" aria-labelledby="reviews-title">
       <div class="container">
         <div class="section-head">
           <h2 id="reviews-title">Trusted by 250+ Families</h2>
           <p class="section-sub"><span class="stars" aria-hidden="true">★★★★★</span> Real reviews from Goldkind Family Orthodontics patients on Google</p>
         </div>
-        <div class="review-grid">
-          <article class="review-card">
-            <div class="review-top">
-              <img src="assets/img/avatar-dave.webp" alt="" width="48" height="48" loading="lazy">
-              <div><h3>Dave</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div>
-            </div>
-            <p class="review-text" data-clamp>Starting orthodontic care in my 30s felt a bit daunting, but Dr. Goldkind and his office made the whole process seamless. The entire staff is always professional, courteous, and efficient—I don't think I ever waited more than a couple of minutes for an appointment. The care was top-tier, and for the first time, I actually love smiling. I couldn’t be happier with my results and am very grateful to Dr. Goldkind for such a great experience. Highly recommend!</p>
-            <button type="button" class="read-more" aria-expanded="false">Read more</button>
-          </article>
-          <article class="review-card">
-            <div class="review-top">
-              <img src="assets/img/avatar-chris.webp" alt="" width="48" height="48" loading="lazy">
-              <div><h3>Chris Abramo</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div>
-            </div>
-            <p class="review-text" data-clamp>Dr. Goldkind and his staff were very friendly and professional throughout my Invisalign experience. They were very accommodating, especially when I needed to remove my aligners for my wedding and have them reinstalled afterward. The entire process was clearly laid out from the start, and Dr. Goldkind was able to completely my treatment sooner than expected. Overall, a great experience in a welcoming atmosphere.</p>
-            <button type="button" class="read-more" aria-expanded="false">Read more</button>
-          </article>
-          <article class="review-card">
-            <div class="review-top">
-              <img src="assets/img/avatar-sarah.webp" alt="" width="48" height="48" loading="lazy">
-              <div><h3>Sarah O'Connor</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div>
-            </div>
-            <p class="review-text" data-clamp>Dr. Goldkind and his staff are thorough, friendly, and walk you through every step of the pallet expander/braces process. My son’s smile truly looks amazing and you can tell he feels good about it too 😄. We are looking forward to working with Dr. Goldkind in the future with our younger child!</p>
-            <button type="button" class="read-more" aria-expanded="false">Read more</button>
-          </article>
+      </div>
+      <!-- Review text is verbatim from the practice's Google reviews. Reviews ending in "…" are
+           shown exactly as truncated in the source; do not complete them without the full text. -->
+      <div class="ticker" id="review-ticker">
+        <div class="ticker-track" id="ticker-track">
+          <div class="ticker-set">
+            <article class="review-card">
+              <div class="review-top"><img src="assets/img/avatar-dave.webp" alt="" width="48" height="48" loading="lazy"><div><h3>Dave</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>Starting orthodontic care in my 30s felt a bit daunting, but Dr. Goldkind and his office made the whole process seamless. The entire staff is always professional, courteous, and efficient—I don't think I ever waited more than a couple of minutes for an appointment. The care was top-tier, and for the first time, I actually love smiling. I couldn’t be happier with my results and am very grateful to Dr. Goldkind for such a great experience. Highly recommend!</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><img src="assets/img/avatar-chris.webp" alt="" width="48" height="48" loading="lazy"><div><h3>Chris Abramo</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>Dr. Goldkind and his staff were very friendly and professional throughout my Invisalign experience. They were very accommodating, especially when I needed to remove my aligners for my wedding and have them reinstalled afterward. The entire process was clearly laid out from the start, and Dr. Goldkind was able to completely my treatment sooner than expected. Overall, a great experience in a welcoming atmosphere.</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><img src="assets/img/avatar-sarah.webp" alt="" width="48" height="48" loading="lazy"><div><h3>Sarah O'Connor</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>Dr. Goldkind and his staff are thorough, friendly, and walk you through every step of the pallet expander/braces process. My son’s smile truly looks amazing and you can tell he feels good about it too 😄. We are looking forward to working with Dr. Goldkind in the future with our younger child!</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a1" aria-hidden="true">C</span><div><h3>Claudine Priola</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>I had an outstanding experience with Dr. Goldkind. The staff was friendly and made every visit a positive one. My teeth look amazing and my treatment was completed sooner than I expected. I couldn’t be happier with the results and I highly recommend them to anyone looking for exceptional orthodontic care.</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a2" aria-hidden="true">J</span><div><h3>Jeff Schacherls</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>Two kids and 11 years later….the doctor, assistants, and entire office staff have remained wonderfully friendly, helpful, and of course professional.</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a3" aria-hidden="true">J</span><div><h3>Jon M</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>Dr. G went above and beyond for my treatment, and his staff was professional, friendly, and careful with my time.</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a4" aria-hidden="true">D</span><div><h3>Doriel Edwards</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>Great experience at Goldkind Family Orthodontics. Just finished my Invisalign treatment and had permanent bottom retainer p…</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a1" aria-hidden="true">M</span><div><h3>Michele</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>My son just got his braces off at goldkind family orthodontics. I highly recommend this practice. They made the process of having braces very…</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a2" aria-hidden="true">D</span><div><h3>Dominick Guarneri</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>Goldkind Family Orthodontics is great from top to bottom. When I walk in, I’m always greeted by the friendly staff. Dr. Goldkind does a…</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a3" aria-hidden="true">C</span><div><h3>Candy Grossman</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>Dr. Goldkind and his team are excellent! Not only do my teeth look amazing, I completed treatment exactly when Dr. Goldkind estimated I would.…</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a4" aria-hidden="true">E</span><div><h3>Eve Lynch</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>I had a great experience with goldkind family orthodontics. All the staff are super friendly. The office is always clean and organized. My…</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a1" aria-hidden="true">J</span><div><h3>Jayden</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>Great place welcoming place has great employees.</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a2" aria-hidden="true">J</span><div><h3>James Cologna</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>Goldkind Family Orthodontics has been an amazing place for orthodontic care over the years. The staff is always friendly, professional, and…</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a3" aria-hidden="true">D</span><div><h3>Divya Roshni</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>We are very happy and proud of the work on my daughter’s teeth, kind and gentle staff as well!</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a4" aria-hidden="true">M</span><div><h3>Michele Cafone</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>Dr. Goldkind and his team were wonderful! I had a smooth and easy experience getting Invisalign. I am so happy with my smile! Thank you!!</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a1" aria-hidden="true">J</span><div><h3>J.B. Bruno</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>Excellent staff and very happy with my experience. Dr Goldkind is top tier for sure.</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a2" aria-hidden="true">N</span><div><h3>Nicole Colavito</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>I can’t say enough good things about this orthodontist office. The entire team goes above and beyond every single visit — they’re friendl…</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a3" aria-hidden="true">N</span><div><h3>Natasha Greendyk</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>I’ve been a patient of Goldkind Family Orthodontics for over a year and a half and my experience has been wonderful! The entire staff…</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a4" aria-hidden="true">N</span><div><h3>Nickarson Paul</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>Dr. Goldkind has been wonderful throughout my son Ethan’s orthodontic journey. Although braces were initially planned for 2 years, a stubborn ba…</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a1" aria-hidden="true">S</span><div><h3>Shary Gonzalez</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>My daughter loved her smile after her braces. Her teeth look really nice. Definitely the best orthodontist in Morristown.</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+            <article class="review-card">
+              <div class="review-top"><span class="avatar a2" aria-hidden="true">L</span><div><h3>Lauren Taylor</h3><p class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Google review</p></div></div>
+              <p class="review-text" data-clamp>All 3 of my kids love Dr. Goldkind and his staff! Highly recommend</p>
+              <button type="button" class="read-more" aria-expanded="false">Read more</button>
+            </article>
+          </div>
         </div>
+      </div>
+      <div class="container ticker-controls">
+        <button type="button" class="ticker-toggle" id="ticker-toggle" aria-pressed="false">
+          <svg class="ico ico-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+          <svg class="ico ico-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <span class="ticker-toggle-label">Pause reviews</span>
+        </button>
       </div>
     </section>
 
     <!-- ============ 4. OFFER + TREATMENT OPTIONS ============ -->
-    <section class="section offer" aria-labelledby="offer-title">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">Fall Into a New Smile</p>
-          <h2 id="offer-title">$1,000 OFF Invisalign® or Braces!</h2>
-          <p class="section-sub">There’s no better time to give yourself (or someone special) the gift of a confident smile. For a limited time, new patients can enjoy <strong>$1,000 OFF a comprehensive Invisalign® or braces treatment</strong> at our Morristown, NJ office. Schedule your consultation today and mention our <strong>$1,000 off Promotional Offer</strong> to lock in your savings! Invisalign® for all ages.</p>
+    <section class="offer" aria-labelledby="offer-title">
+      <div class="fall-band">
+        <div class="container fall-grid">
+          <figure class="fall-photo">
+            <img src="assets/img/fall-smile.webp" alt="Dr. Goldkind with a smiling young patient holding a “My Orthodontist Rocks” sign at Goldkind Family Orthodontics" width="524" height="529" loading="lazy" decoding="async">
+          </figure>
+          <div class="fall-copy">
+            <h2 id="offer-title">Fall Into a New Smile</h2>
+            <p class="offer-line">$1,000 OFF Invisalign® or Braces!</p>
+            <p>There’s no better time to give yourself (or someone special) the gift of a confident smile.</p>
+            <p>For a limited time, new patients can enjoy <strong>$1,000 OFF a comprehensive Invisalign® or braces treatment</strong> at our Morristown, NJ office.</p>
+            <p>Get a straighter, healthier smile this fall!</p>
+            <p>Schedule your consultation today and mention our <strong>$1,000 off Promotional Offer</strong> to lock in your savings! Invisalign® for all ages.</p>
+            <a href="#lead-form" class="btn btn-gold js-scroll" data-track="cta_click">Claim My $1,000 Discount</a>
+          </div>
         </div>
+      </div>
 
+      <div class="container treat-block">
+        <div class="section-head">
+          <h3 class="h2-style">How We Can Help</h3>
+          <p class="section-sub">We know the importance of giving our patients options for treatment, and we want you to find the best treatment option for you, no matter what you choose.</p>
+        </div>
         <div class="treat-grid">
           <article class="treat-card treat-braces">
             <div class="treat-icon" aria-hidden="true">
               <svg viewBox="0 0 48 48"><path d="M8 24c0-7 4-13 16-13s16 6 16 13-4 13-16 13S8 31 8 24z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M8 24h32" stroke="currentColor" stroke-width="2.5"/><rect x="13" y="20.5" width="6" height="7" rx="1.5" fill="currentColor"/><rect x="21" y="20.5" width="6" height="7" rx="1.5" fill="currentColor"/><rect x="29" y="20.5" width="6" height="7" rx="1.5" fill="currentColor"/></svg>
             </div>
-            <h3>Braces</h3>
+            <h4>Braces</h4>
             <p>Looking for a more traditional route? We’ve got you covered. Goldkind Family Orthodontics offers multiple types of braces to match your comfort and aesthetic needs.</p>
             <ul class="treat-points">
               <li>Multiple types of braces</li>
@@ -235,7 +344,7 @@
             <div class="treat-icon" aria-hidden="true">
               <svg viewBox="0 0 48 48"><path d="M9 20c0-6 5-10 15-10s15 4 15 10c0 8-5 18-15 18S9 28 9 20z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M15 21c0-3 4-5 9-5s9 2 9 5c0 5-3 11-9 11s-9-6-9-11z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 3"/></svg>
             </div>
-            <h3>Invisalign®</h3>
+            <h4>Invisalign®</h4>
             <p>Live your best life with the confident smile you’ve always wanted—without the look of traditional braces. Invisalign is comfortable, removable, and designed to fit seamlessly into your lifestyle. Whether you're a teen or an adult, it's never too late.</p>
             <ul class="treat-points">
               <li>Comfortable and removable</li>
@@ -243,8 +352,6 @@
             </ul>
           </article>
         </div>
-
-        <p class="how-help">We know the importance of giving our patients options for treatment, and we want you to find the best treatment option for you, no matter what you choose.</p>
         <div class="center">
           <a href="#lead-form" class="btn btn-navy btn-lg js-scroll" data-track="cta_click">Claim My $1,000 Discount</a>
         </div>
@@ -255,8 +362,7 @@
     <section class="section doctor" aria-labelledby="doctor-title">
       <div class="container doctor-grid">
         <figure class="doctor-photo">
-          <!-- Replace src with the approved photo of Dr. Michael Goldkind (portrait orientation, ~800×960). -->
-          <img src="assets/img/dr-goldkind-placeholder.svg" alt="Dr. Michael Goldkind, orthodontist at Goldkind Family Orthodontics" width="800" height="960" loading="lazy" decoding="async">
+          <img src="assets/img/dr-goldkind.webp" alt="Dr. Michael Goldkind, orthodontist at Goldkind Family Orthodontics" width="532" height="404" loading="lazy" decoding="async">
         </figure>
         <div class="doctor-copy">
           <p class="kicker">Our Expert</p>

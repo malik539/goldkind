@@ -105,9 +105,50 @@
     });
   }
 
-  /* ---------- Reviews: Read more ---------- */
-  function initReadMore() {
-    $$('.review-card').forEach(function (card) {
+  /* ---------- Reviews: running ticker ---------- */
+  function initTicker() {
+    var ticker = $('#review-ticker');
+    var track = $('#ticker-track');
+    var set = track && $('.ticker-set', track);
+    if (!ticker || !track || !set) { return; }
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Duplicate the card set once so the loop is seamless (clone is decorative).
+    var clone = set.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    $$('button', clone).forEach(function (b) { b.tabIndex = -1; });
+    track.appendChild(clone);
+
+    function setDuration() {
+      var speed = parseFloat(getComputedStyle(ticker).getPropertyValue('--speed')) || 48; // px per second
+      var distance = set.getBoundingClientRect().width;
+      track.style.setProperty('--dur', Math.max(20, Math.round(distance / speed)) + 's');
+    }
+    if (!reduce) {
+      setDuration();
+      track.classList.add('animate');
+      window.addEventListener('resize', setDuration);
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(setDuration); }
+    }
+
+    var toggle = $('#ticker-toggle');
+    var label = toggle && $('.ticker-toggle-label', toggle);
+    var userPaused = false;
+    function applyPause() {
+      var paused = userPaused || $$('.review-text.expanded', track).length > 0;
+      ticker.classList.toggle('paused', paused);
+    }
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        userPaused = !userPaused;
+        toggle.setAttribute('aria-pressed', String(userPaused));
+        if (label) { label.textContent = userPaused ? 'Play reviews' : 'Pause reviews'; }
+        applyPause();
+      });
+    }
+
+    // Read more / less (works for originals and clones; expanding pauses the ticker)
+    $$('.review-card', track).forEach(function (card) {
       var text = $('.review-text', card);
       var btn = $('.read-more', card);
       if (!text || !btn) { return; }
@@ -119,6 +160,7 @@
         var open = text.classList.toggle('expanded');
         btn.setAttribute('aria-expanded', String(open));
         btn.textContent = open ? 'Read less' : 'Read more';
+        applyPause();
       });
       check();
       window.addEventListener('resize', check);
@@ -262,7 +304,7 @@
     initCountdown();
     initScrollLinks();
     initTracking();
-    initReadMore();
+    initTicker();
     initStickyCta();
     initForm();
     var y = $('#year'); if (y) { y.textContent = String(new Date().getFullYear()); }

@@ -7,7 +7,7 @@ Static, dependency-free landing page for the **Save $1,000 on Invisalign® or Br
 index.html            page markup (7 sections + header/offer bar + mobile sticky CTA)
 assets/css/styles.css styles (brand: navy #201C44, gold #DBB310)
 assets/js/main.js     countdown, lead form, sticky CTA, read-more, dataLayer events
-assets/img/           logo, reviewer avatars (from approved content), doctor placeholder
+assets/img/           logo, Dr. Goldkind photo, promo photo, reviewer avatars
 ```
 
 Open `index.html` directly or serve the folder with any static host.
@@ -41,19 +41,23 @@ form uses reCAPTCHA/Turnstile, mount it in the marked slot inside the form.
    - Do you accept insurance and offer payment plans?
    - How long does Invisalign or braces treatment take?
    - Does it hurt to get braces or Invisalign?
-2. **Dr. Goldkind photo.** No image was supplied. `assets/img/dr-goldkind-placeholder.svg` is a
-   clearly-labelled brand placeholder; swap the `src` in the "Meet Dr. Goldkind" section for the
-   approved portrait (recommended ~800×960, portrait).
-3. **Hero image.** No patient/practice photo was supplied, so the hero uses a branded gradient with
-   the form card as the visual anchor. An approved photo can be added as a hero background later.
-4. **Testimonial videos (Tommy, Aiden — Braces Treatment).** Referenced in the content but no video
+2. **Hero image.** No hero-specific patient/practice photo was supplied, so the hero uses a branded
+   gradient with the form card as the visual anchor. An approved photo can be added as a hero background later.
+3. **Testimonial videos (Tommy, Aiden — Braces Treatment).** Referenced in the content but no video
    assets were supplied; the FAQ section has a marked slot for them.
+4. **Photo resolution.** The supplied Dr. Goldkind photo (532×404) and the "Fall Into a New Smile"
+   photo (524×529) are displayed at up to ~480px wide; higher-resolution originals would be sharper on retina screens.
 5. **Logo.** The supplied logo is a 202×123 PNG; a vector (SVG) or 2× PNG would be sharper on retina screens.
 
 ## Content rules applied
 
 - Offer, dates, eligibility, disclaimers, reviews, doctor bio and treatment copy are verbatim from the
   approved content file. Review text is untouched (including original typos) and truncated only visually.
+- The review ticker holds 21 real Google reviews: 6 from the content file and 15 transcribed from the
+  supplied screenshots of the live reviews widget. Reviews that were truncated in the screenshots end
+  in "…" exactly as shown; supply the full text to complete them. Relative dates ("2 months ago") are
+  omitted because they go stale. Ticker speed: `--speed` in `styles.css` (px/s); it pauses on hover,
+  on Read more, via the Pause button, and is disabled under `prefers-reduced-motion`.
 - Deadline everywhere: **October 31st, 2026**. Countdown targets 11:59:59 PM America/New_York on that
   date, updates every second, and switches to "This offer has ended" with no negative values.
 - Phone `862-314-3913` / `tel:8623143913`; address 28 DeHart St., Morristown, NJ 07960; Mon–Fri 9:00 AM–5:00 PM.
