@@ -17,6 +17,13 @@
     // Offer deadline: end of day, October 31st, 2026, Morristown NJ local time.
     OFFER_END: { year: 2026, month: 10, day: 31, hour: 23, minute: 59, second: 59 },
     TIMEZONE: 'America/New_York',
+    // Patient testimonial videos (approved: Tommy and Aiden, Braces Treatment). Fill `src` with
+    // the direct video file URL (.mp4 / .webm) from the GHL media library; `poster` is the
+    // thumbnail image. The section renders only when every entry has a src.
+    TESTIMONIAL_VIDEOS: [
+      { name: 'Tommy', treatment: 'Braces Treatment', src: '', poster: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/69e73a4d2c135a8c83d77370.png' },
+      { name: 'Aiden', treatment: 'Braces Treatment', src: '', poster: 'https://assets.cdn.filesafe.space/1c5e8iQm9RJiApRw9gUw/media/69e73987c56ad2790865f546.png' }
+    ],
     MIN_SECONDS_BEFORE_SUBMIT: 3
   };
   /* ====================================================================== */
@@ -300,11 +307,41 @@
     });
   }
 
+  /* ---------- Patient testimonial videos ---------- */
+  function initTestimonials() {
+    var wrap = $('#testimonials');
+    var grid = $('#testi-grid');
+    var items = CONFIG.TESTIMONIAL_VIDEOS || [];
+    if (!wrap || !grid || !items.length || items.some(function (v) { return !v.src; })) { return; }
+    items.forEach(function (v) {
+      var card = document.createElement('figure');
+      card.className = 'testi-card';
+      var video = document.createElement('video');
+      video.controls = true; video.preload = 'none'; video.playsInline = true;
+      if (v.poster) { video.poster = v.poster; }
+      video.setAttribute('aria-label', v.name + ' — ' + v.treatment + ' patient testimonial');
+      var source = document.createElement('source');
+      source.src = v.src;
+      video.appendChild(source);
+      video.addEventListener('play', function () {
+        $$('video', grid).forEach(function (other) { if (other !== video) { other.pause(); } });
+        track('video_play', { video_name: v.name });
+      });
+      var cap = document.createElement('figcaption');
+      cap.innerHTML = '<strong></strong><span></span>';
+      cap.firstChild.textContent = v.name;
+      cap.lastChild.textContent = v.treatment;
+      card.appendChild(video); card.appendChild(cap); grid.appendChild(card);
+    });
+    wrap.hidden = false;
+  }
+
   function init() {
     initCountdown();
     initScrollLinks();
     initTracking();
     initTicker();
+    initTestimonials();
     initStickyCta();
     initForm();
     var y = $('#year'); if (y) { y.textContent = String(new Date().getFullYear()); }

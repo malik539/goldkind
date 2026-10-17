@@ -428,9 +428,12 @@
             </div>
           </details>
         </div>
-        <!-- Patient testimonial videos (Tommy — Braces Treatment, Aiden — Braces Treatment)
-             are referenced in the approved content but no video assets were supplied.
-             Add them here once provided; do not use placeholder videos. -->
+        <!-- Patient testimonial videos. Rendered by main.js from CONFIG.TESTIMONIAL_VIDEOS;
+             the block stays hidden until each entry has a video src (no placeholder videos). -->
+        <div class="testimonials" id="testimonials" hidden>
+          <h3 class="h2-style center">Patient Testimonials</h3>
+          <div class="testi-grid" id="testi-grid"></div>
+        </div>
       </div>
     </section>
 

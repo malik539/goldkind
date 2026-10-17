@@ -43,8 +43,9 @@ form uses reCAPTCHA/Turnstile, mount it in the marked slot inside the form.
    - Does it hurt to get braces or Invisalign?
 2. **Hero image.** No hero-specific patient/practice photo was supplied, so the hero uses a branded
    gradient with the form card as the visual anchor. An approved photo can be added as a hero background later.
-3. **Testimonial videos (Tommy, Aiden — Braces Treatment).** Referenced in the content but no video
-   assets were supplied; the FAQ section has a marked slot for them.
+3. **Testimonial videos (Tommy, Aiden — Braces Treatment).** The section is built and hidden until
+   `CONFIG.TESTIMONIAL_VIDEOS[*].src` in `assets/js/main.js` holds the direct video file URLs
+   (.mp4/.webm from the GHL media library). The two supplied `.png` links are used as posters.
 4. **Photo resolution.** The supplied Dr. Goldkind photo (532×404) and the "Fall Into a New Smile"
    photo (524×529) are displayed at up to ~480px wide; higher-resolution originals would be sharper on retina screens.
 5. **Logo.** The supplied logo is a 202×123 PNG; a vector (SVG) or 2× PNG would be sharper on retina screens.
