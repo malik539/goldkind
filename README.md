@@ -4,7 +4,7 @@ Static, dependency-free landing page for the **Save $1,000 on Invisalign® or Br
 (New Patients Only · Valid until October 31st, 2026).
 
 ```
-index.html            page markup (7 sections + header/offer bar + mobile sticky CTA)
+index.html            page markup (hero, reviews, offer, doctor, testimonials, FAQ, final CTA + header/offer bar + sticky CTA)
 assets/css/styles.css styles (brand: navy #201C44, gold #DBB310)
 assets/js/main.js     countdown, lead form, sticky CTA, read-more, dataLayer events
 assets/img/           logo, Dr. Goldkind photo, promo photo, reviewer avatars
